@@ -1,0 +1,22 @@
+{
+  "author": "seek.guo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-web3/bitcoin-sdk-lite/issues"
+  },
+  "homepage": "https://github.com/the-web3/bitcoin-sdk-lite#readme",
+  "dependencies": {
+    "@types/bn.js": "^5.1.6",
+    "bn.js": "^5.2.1",
+    "near-api-js": "^0.44.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "@types/node": "^22.13.4",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
