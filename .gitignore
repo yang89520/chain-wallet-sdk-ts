@@ -22,7 +22,13 @@ go.work
 go.work.sum
 
 # env file
+
+chain-oasis/.env
+
+.idea
+
 .env
 /.idea
 /node_modules
 package-lock.json
+
