@@ -2,7 +2,7 @@ import assert from "assert";
 import BN from "bn.js";
 import { transactions } from "near-api-js";
 import { signTransaction } from "../src/sign";
-import { generateAddress, importPrivateKey } from "../src/address";
+import { importPrivateKey } from "../src/address";
 
 
 describe("Offline Transaction Signing", () => {

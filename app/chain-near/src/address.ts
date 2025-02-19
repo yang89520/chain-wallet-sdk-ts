@@ -1,11 +1,25 @@
 import { KeyPair } from "near-api-js";
 
-export function generateAddress(): KeyPair {
-    const keyPair = KeyPair.fromRandom("ED25519");
-    return keyPair;
+export function importPrivateKey(privateKey: string): { privateKey: string, publicKey: string, address: string } {
+    const keyPair = KeyPair.fromString(privateKey);
+    const publicKey = keyPair.getPublicKey();
+    const address = publicKey.toString().replace("ed25519:", "");
+
+    return {
+        privateKey: keyPair.toString(),
+        publicKey: publicKey.toString(),
+        address: address
+    };
 }
 
-export function importPrivateKey(privateKey: string): KeyPair {
-    const keyPair = KeyPair.fromString(privateKey);
-    return keyPair;
+export function generateNearAccount(): { privateKey: string, publicKey: string, address: string } {
+    const keyPair = KeyPair.fromRandom("ED25519");
+    const publicKey = keyPair.getPublicKey();
+    const address = publicKey.toString().replace("ed25519:", "");
+
+    return {
+        privateKey: keyPair.toString(),
+        publicKey: publicKey.toString(),
+        address: address
+    };
 }
