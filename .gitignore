@@ -22,4 +22,4 @@ packages/chain-oasis/.env
 /.idea
 /node_modules
 package-lock.json
-.turbo
+.turbo/
