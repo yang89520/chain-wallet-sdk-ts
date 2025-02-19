@@ -1,0 +1,117 @@
+
+> chain-oasis@1.0.0 test /Users/guoshijiang/S4WorkSpace/chain-wallet-sdk/app/chain-oasis
+> jest
+
+[1m[2mDetermining test suites to run...[22m[22m[999D[K
+[?2026h[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026l[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    hello wallet sdk
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:11:17)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026l[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026l[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026l[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026l[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026l[K[1A[K[1A[0m[7m[1m[31m FAIL [39m[22m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A  oasis unit test case
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A    [32m✓[39m [2mHello World (11 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A    [31m✕[39m [2mcreateAddress[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A    [31m✕[39m [2mimportAddress (1 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A    [31m✕[39m [2msign transaction grpc[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A    [31m✕[39m [2msign transaction[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[K[1A[K[1A[1m[31m  [1m● [22m[1moasis unit test case › createAddress[39m[22m
+
+    MNEMONIC environment variable is not set
+[2m[22m
+[2m    [0m [90m 16 |[39m         [36mconst[39m mnemonic [33m=[39m process[33m.[39menv[33m.[39m[33mMNEMONIC[39m[33m;[39m[22m
+[2m     [90m 17 |[39m         [36mif[39m ([33m![39mmnemonic) {[22m
+[2m    [31m[1m>[22m[2m[39m[90m 18 |[39m             [36mthrow[39m [36mnew[39m [33mError[39m([32m'MNEMONIC environment variable is not set'[39m)[33m;[39m[22m
+[2m     [90m    |[39m                   [31m[1m^[22m[2m[39m[22m
+[2m     [90m 19 |[39m         }[22m
+[2m     [90m 20 |[39m         [36mconst[39m params_1 [33m=[39m {[22m
+[2m     [90m 21 |[39m             mnemonic[33m:[39m mnemonic[33m,[39m[0m[22m
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:18:19)[22m[2m[22m
+
+[1m[31m  [1m● [22m[1moasis unit test case › importAddress[39m[22m
+
+    TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
+[2m[22m
+[2m    [0m [90m 25 |[39m[22m
+[2m     [90m 26 |[39m [36mexport[39m [36masync[39m [36mfunction[39m importAddress(privateKey[33m:[39m string) {[22m
+[2m    [31m[1m>[22m[2m[39m[90m 27 |[39m     [36mconst[39m bufferKey [33m=[39m [33mUint8Array[39m[33m.[39m[36mfrom[39m([33mBuffer[39m[33m.[39m[36mfrom[39m(privateKey[33m,[39m [32m'base64'[39m))[33m;[39m[22m
+[2m     [90m    |[39m                                              [31m[1m^[22m[2m[39m[22m
+[2m     [90m 28 |[39m     [36mconst[39m {publicKey} [33m=[39m tweetnacl[33m.[39msign[33m.[39mkeyPair[33m.[39mfromSecretKey(bufferKey)[33m;[39m[22m
+[2m     [90m 29 |[39m     [36mconst[39m address [33m=[39m [36mawait[39m oasisRT[33m.[39maddress[33m.[39mfromSigspec({ed25519[33m:[39m [36mnew[39m [33mUint8Array[39m(publicKey)})[33m;[39m[22m
+[2m     [90m 30 |[39m     [36mreturn[39m oasisRT[33m.[39maddress[33m.[39mtoBech32(address)[33m;[39m[0m[22m
+[2m[22m
+[2m      [2mat importAddress ([22m[2mwallet/index.ts[2m:27:46)[22m[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:31:31)[22m[2m[22m
+
+[1m[31m  [1m● [22m[1moasis unit test case › sign transaction grpc[39m[22m
+
+    TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
+[2m[22m
+[2m    [0m [90m 35 |[39m     [36mconst[39m {srcPrivateKey[33m,[39m disPrivateKey} [33m=[39m params[33m;[39m[22m
+[2m     [90m 36 |[39m[22m
+[2m    [31m[1m>[22m[2m[39m[90m 37 |[39m     [36mconst[39m bufferKeysrc [33m=[39m [33mUint8Array[39m[33m.[39m[36mfrom[39m([33mBuffer[39m[33m.[39m[36mfrom[39m(srcPrivateKey[33m,[39m [32m'base64'[39m))[33m;[39m[22m
+[2m     [90m    |[39m                                                 [31m[1m^[22m[2m[39m[22m
+[2m     [90m 38 |[39m     [36mconst[39m src [33m=[39m oasis[33m.[39msignature[33m.[39m[33mNaclSigner[39m[33m.[39mfromSecret(bufferKeysrc[33m,[39m [32m'this key is not important'[39m)[33m;[39m[22m
+[2m     [90m 39 |[39m[22m
+[2m     [90m 40 |[39m[0m[22m
+[2m[22m
+[2m      [2mat signTransactiongrpc ([22m[2mwallet/index.ts[2m:37:49)[22m[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:40:28)[22m[2m[22m
+
+[1m[31m  [1m● [22m[1moasis unit test case › sign transaction[39m[22m
+
+    TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
+[2m[22m
+[2m    [0m [90m 79 |[39m [36mexport[39m [36masync[39m [36mfunction[39m signTransaction(params[33m:[39m any) {[22m
+[2m     [90m 80 |[39m     [36mconst[39m {privateKey[33m,[39m chainContext[33m,[39m gas[33m,[39m nonce[33m,[39m toAddress[33m,[39m amount} [33m=[39m params[33m;[39m[22m
+[2m    [31m[1m>[22m[2m[39m[90m 81 |[39m     [36mconst[39m bufferKeysrc [33m=[39m [33mUint8Array[39m[33m.[39m[36mfrom[39m([33mBuffer[39m[33m.[39m[36mfrom[39m(privateKey[33m,[39m [32m'base64'[39m))[33m;[39m[22m
+[2m     [90m    |[39m                                                 [31m[1m^[22m[2m[39m[22m
+[2m     [90m 82 |[39m     [36mconst[39m src [33m=[39m oasis[33m.[39msignature[33m.[39m[33mNaclSigner[39m[33m.[39mfromSecret(bufferKeysrc[33m,[39m [32m'this key is not important'[39m)[33m;[39m[22m
+[2m     [90m 83 |[39m[22m
+[2m     [90m 84 |[39m     [36mconst[39m tw [33m=[39m oasis[33m.[39mstaking[33m.[39mtransferWrapper()[33m;[39m[0m[22m
+[2m[22m
+[2m      [2mat signTransaction ([22m[2mwallet/index.ts[2m:81:49)[22m[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:53:28)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
+[?2026h[K[1A[K[1A[?2026l[999D[K[1mTest Suites: [22m[1m[31m1 failed[39m[22m, 1 total
+[1mTests:       [22m[1m[31m4 failed[39m[22m, [1m[32m1 passed[39m[22m, 5 total
+[1mSnapshots:   [22m0 total
+[1mTime:[22m        0.541 s, estimated 1 s
+[2mRan all test suites[22m[2m.[22m
+[?2026h[?2026l[41m[30m ELIFECYCLE [39m[49m [31mTest failed. See above for more details.[39m

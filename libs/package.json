@@ -1,0 +1,11 @@
+{
+  "name": "libs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo wallet libs"
+  },
+  "author": "",
+  "license": "ISC"
+}

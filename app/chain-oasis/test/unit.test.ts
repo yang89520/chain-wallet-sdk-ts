@@ -7,6 +7,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 describe('oasis unit test case', () => {
+    test('Hello World', async () => {
+        console.log("hello wallet sdk")
+    })
 
     test('createAddress', async () => {
         // 从环境变量中读取助记词
@@ -50,6 +53,4 @@ describe('oasis unit test case', () => {
         let signed = await signTransaction(params);
         console.log(signed)
     });
-
-
 });

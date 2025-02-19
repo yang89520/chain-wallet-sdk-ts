@@ -1,0 +1,32 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["GITHUB_TOKEN"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "test": {
+      "outputs": ["coverage/"],
+      "dependsOn": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "lint:faucet": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    },
+    "dev:template": {
+      "cache": false
+    },
+    "dev:quests": {
+      "cache": false
+    },
+    "e2e:test:template": {
+      "cache": false
+    }
+  }
+}

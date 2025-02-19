@@ -30,11 +30,11 @@ https://docs.cdp.coinbase.com/mesh/docs/welcome
 搭建方式文档  
 https://docs.oasis.io/node/run-your-node/
 
-### 账户模型还是 UTXO  
-账户模型浏览器看转账  
+### 账户模型还是 UTXO
+账户模型浏览器看转账
 
 ### 签名算法
-- Ed25519 address derivation compatible with the consensus layer.  
+- Ed25519 address derivation compatible with the consensus layer.
 - ethereum-compatible address derivation from Secp256k1 public keys.
 
 ### 代币精度
@@ -92,7 +92,7 @@ https://docs.oasis.io/node/run-your-node/
 POS
 
 ### 确认位
-参考binance 1个块 
+参考binance 1个块
 
 ### 是否支持质押，POS 链是支持质押
 支持质押
@@ -122,7 +122,7 @@ https://docs.cdp.coinbase.com/mesh/docs/welcome
 #  Oasis 核心特点
 Oasis 是首个专为可扩展性和机密计算设计的 Layer 1 区块链。Oasis 是 Sapphire 的诞生地，Sapphire 是首个机密 EVM（以太坊虚拟机），赋能 Web3 和去中心化 AI 开发者，使其能够在 Oasis 或其他基于 EVM 的链上原生构建具有“智能隐私”功能的去中心化应用（dApps）。
 
-ROSE 是 Oasis 网络的原生代币，用于支付 Gas 费用、质押、委托和治理。凭借独特的分层架构，Oasis 为 DeFi、AI、GameFi、NFT、元宇宙、数据代币化和 DAO 治理提供了最佳的构建和执行环境。Oasis 还在共识层原生支持 Rollups。  
+ROSE 是 Oasis 网络的原生代币，用于支付 Gas 费用、质押、委托和治理。凭借独特的分层架构，Oasis 为 DeFi、AI、GameFi、NFT、元宇宙、数据代币化和 DAO 治理提供了最佳的构建和执行环境。Oasis 还在共识层原生支持 Rollups。
 
 **智能隐私**  
 更好的 dApps 需要更智能的隐私。因此，Oasis 致力于为 Web3 和 AI 提供“智能隐私”，通过灵活、完全可定制的机密性框架，取代当前僵化、复杂且低效的工具。借助 Sapphire 运行时及其配套的 Oasis 隐私层（OPL，适用于基于 EVM 的链），Oasis 为任何 Web3 开发者带来了尖端的机密性技术，即使他们并不直接在 Oasis 网络上构建应用。对于运行在独立主链上的应用，OPL 允许将 Sapphire 的强大隐私功能集成到 Web3 的任何层级。通过创建具有无限可定制性的机密性频谱，Oasis 正在重新定义开发者对隐私集成的思考方式，并重塑 Web3 和 AI 中优先考虑隐私的工具集。
