@@ -1,0 +1,9 @@
+/node_modules
+/coverage
+/dist
+.DS_Store
+.vscode
+.env
+tmp
+env.ts
+gitACP.sh
