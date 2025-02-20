@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "beforetest": "[ ! -f test/env.ts ] && cp test/env.ts.template test/env.ts",
-    "test": "npm run before:test && jest",
-    "coverage": "npm run before:test && jest --coverage"
+    "beforetest": "sh test/beforetest.sh",
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",

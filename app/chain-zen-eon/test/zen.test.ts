@@ -10,7 +10,8 @@ const k2 = keySet.at(1)
 
 beforeAll(async () => {
     keySet.forEach(async (priK) => {
-        if (priK.mnemonic === undefined || priK.mnemonic === '') {
+        if (priK.mnemonic === undefined || priK.mnemonic === '' || bip.validateMnemonic({ mnemonic: priK.mnemonic, language: 'english' }) === false) {
+            console.log('mnemonic valid, generate new mnemonic')
             const mnemonicWords = bip.generateMnemonic({ number: 12, language: 'english' });
             ({
                 mnemonic: priK.mnemonic,
@@ -22,15 +23,14 @@ beforeAll(async () => {
     });
 });
 
-
 describe('expect run pass test', () => {
     test('generate mnemonic', async () => {
         console.log(wallet.generateMnemonic())
     });
 
-    test('create zen address', async () => {
-        keySet.forEach(async (priK) => {
-            // console.log(priK.mnemonic)
+    test('create zen address',  () => {
+        keySet.forEach( (priK) => {
+            console.log(priK.mnemonic)
             const keyPair = wallet.createZenWalletByWord(priK.mnemonic)
             console.log(keyPair)
         });
@@ -103,23 +103,18 @@ describe('expect run pass test', () => {
         console.log(rawHex)
     });
 
-    test('sign zen transaction', async () => {
-        ethers.utils.hexValue
-    });
-
 });
 
 
 describe('expect error test', () => {
     const wrongMnemonicLists = [
-        'unveil soap sword sponsor lion feed primary notable cement hurry learn haha',
-        'unveil soap sword sponsor lion feed primary notable'
+        'unveil haha haha haha haha feed primary haha cement hurry learn haha',
     ]
 
-    //为什么这里的error没catch到
     // test('create zen address', () => {
     //     wrongMnemonicLists.forEach((priK) => {
     //         // console.log(priK.mnemonic)
+    //         console.log(priK)
     //         expect(wallet.createZenWalletByWord(priK, undefined)).toThrow();
     //         // console.log(keyPair)
     //     });

@@ -22,7 +22,8 @@ export function createZenWalletByWord(mnemonic: string, language?: string) {
     if (!language) {
         language = 'english'
     }
-    if (!bip.validateMnemonic({ mnemonic: mnemonic, language: language })) {
+    const flag = bip.validateMnemonic({ mnemonic: mnemonic, language: language })
+    if (!flag) {
         throw new Error('Invalid mnemonic')
     }
 
@@ -51,7 +52,7 @@ export function zenSign(params: any) {
     const gasLimits = ethers.utils.hexValue(gasLimit);
     const chainIdHex = ethers.utils.hexValue(chainId);
     let newAmount = new BigNumber(amount).times((new BigNumber(10).pow(decimal)));
-    console.log(newAmount)
+    // console.log(newAmount)
     const numBalanceHex = numToHex(newAmount);
     let txData: any = {
         nonce: transactionNonce,
