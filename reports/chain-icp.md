@@ -2,6 +2,16 @@
 
 icp wallet sdk
 
+- 相关链接
+  - 官方文档
+    - https://internetcomputer.org/docs/current/home
+  - CMC地址
+    - https://coinmarketcap.com/currencies/internet-computer/
+  - Github
+    - https://github.com/dfinity/ic
+  - 浏览器
+    - https://dashboard.internetcomputer.org/
+    - https://www.icpexplorer.org/
 - RPC URL(open node)
     - 没有传统的公开 RPC 节点，官方没有提供一个默认的、全网共享的“公开 RPC 节点”来直接连接网络。
     - 边界节点是公开可访问的，任何人都可以通过 HTTPS 接口（如 https://ic0.app 或 https://icp-api.io）与 ICP 主网交互。这些节点由
