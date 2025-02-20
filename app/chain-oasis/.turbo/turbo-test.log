@@ -1,5 +1,6 @@
+[43m[30m WARN [39m[49m Unsupported engine: wanted: {"node":">=18.0.0 <=22.0.0"} (current: {"node":"v22.13.1","pnpm":"9.15.4"})
 
-> chain-oasis@1.0.0 test /Users/guoshijiang/S4WorkSpace/chain-wallet-sdk/app/chain-oasis
+> chain-oasis@1.0.0 test /home/ccacr/project/theWeb3/wallet/tmp/chain-wallet-sdk/app/chain-oasis
 > jest
 
 [1m[2mDetermining test suites to run...[22m[22m[999D[K
@@ -30,10 +31,10 @@
 [K[1A[K[1A  oasis unit test case
 
 [0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A    [32m✓[39m [2mHello World (11 ms)[22m
+[K[1A[K[1A    [32m✓[39m [2mHello World (9 ms)[22m
 
 [0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A    [31m✕[39m [2mcreateAddress[22m
+[K[1A[K[1A    [31m✕[39m [2mcreateAddress (1 ms)[22m
 
 [0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
 [K[1A[K[1A    [31m✕[39m [2mimportAddress (1 ms)[22m
@@ -64,7 +65,7 @@
 
 [1m[31m  [1m● [22m[1moasis unit test case › importAddress[39m[22m
 
-    TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
+    TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
 [2m[22m
 [2m    [0m [90m 25 |[39m[22m
 [2m     [90m 26 |[39m [36mexport[39m [36masync[39m [36mfunction[39m importAddress(privateKey[33m:[39m string) {[22m
@@ -79,7 +80,7 @@
 
 [1m[31m  [1m● [22m[1moasis unit test case › sign transaction grpc[39m[22m
 
-    TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
+    TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
 [2m[22m
 [2m    [0m [90m 35 |[39m     [36mconst[39m {srcPrivateKey[33m,[39m disPrivateKey} [33m=[39m params[33m;[39m[22m
 [2m     [90m 36 |[39m[22m
@@ -94,7 +95,7 @@
 
 [1m[31m  [1m● [22m[1moasis unit test case › sign transaction[39m[22m
 
-    TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
+    TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined
 [2m[22m
 [2m    [0m [90m 79 |[39m [36mexport[39m [36masync[39m [36mfunction[39m signTransaction(params[33m:[39m any) {[22m
 [2m     [90m 80 |[39m     [36mconst[39m {privateKey[33m,[39m chainContext[33m,[39m gas[33m,[39m nonce[33m,[39m toAddress[33m,[39m amount} [33m=[39m params[33m;[39m[22m
@@ -112,6 +113,6 @@
 [?2026h[K[1A[K[1A[?2026l[999D[K[1mTest Suites: [22m[1m[31m1 failed[39m[22m, 1 total
 [1mTests:       [22m[1m[31m4 failed[39m[22m, [1m[32m1 passed[39m[22m, 5 total
 [1mSnapshots:   [22m0 total
-[1mTime:[22m        0.541 s, estimated 1 s
+[1mTime:[22m        0.23 s, estimated 1 s
 [2mRan all test suites[22m[2m.[22m
 [?2026h[?2026l[41m[30m ELIFECYCLE [39m[49m [31mTest failed. See above for more details.[39m

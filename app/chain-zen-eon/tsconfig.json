@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/src": [
+        "./src/*"
+      ],
+      "@/test": [
+        "./test/*"
+      ],
+      "*": [
+        "node_modules/*"
+      ]
+    },
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "CommonJS"
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "dist"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "chain-zen-eon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "beforetest": "sh test/beforetest.sh",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ethereumjs/common": "2.4.0",
+    "@ethereumjs/tx": "3.2.1",
+    "@ethersproject/abi": "^5.6.9",
+    "@ethersproject/wallet": "^5.6.9",
+    "bignumber.js": "9.0.1",
+    "bip39": "^3.0.4",
+    "ethers": "^5.6.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^27",
+    "@types/node": "^22.13.1",
+    "jest": "^30.0.0-alpha.1",
+    "@umijs/test": "^4",
+    "ts-node": "^10",
+    "typescript": "^4"
+  }
+}
