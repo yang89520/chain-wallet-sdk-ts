@@ -1,153 +1,0 @@
-
-> chain-oasis@1.0.0 test /Users/guoshijiang/S4WorkSpace/chain-wallet-sdk/app/chain-oasis
-> jest
-
-[1m[2mDetermining test suites to run...[22m[22m[999D[K
-[?2026h[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    hello wallet sdk
-[2m[22m
-[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:11:17)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    oasis1qp5fstvek2jep8xvvn67e6kn0u7etce2fsq2w4yr
-[2m[22m
-[2m      [2mat createAddress ([22m[2mwallet/index.ts[2m:18:13)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    {
-      privateKey: 'XBoC+BsWhm/G09chHdp3LqwM+WuSmeyW9QDyRXEaz3BYfEgDBeOzobablffxwrI5DS5510ZSgICLCRWAHyaQhA==',
-      publicKey: 'WHxIAwXjs6G2m5X38cKyOQ0ueddGUoCAiwkVgB8mkIQ=',
-      address: 'oasis1qp5fstvek2jep8xvvn67e6kn0u7etce2fsq2w4yr'
-    }
-[2m[22m
-[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:26:17)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    oasis1qp5fstvek2jep8xvvn67e6kn0u7etce2fsq2w4yr
-[2m[22m
-[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:32:17)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    gas 1264
-[2m[22m
-[2m      [2mat signTransactiongrpc ([22m[2mwallet/index.ts[2m:66:13)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    omlzaWduYXR1cmWiaXNpZ25hdHVyZVhAUudQHhuoazczzstmSTHXUoarAAGT7y4E1kgg2jKn0tHaO+RNFLKl+YZQ8Yv3dbyCaz4ahouE+VB1lpIQhzzeCmpwdWJsaWNfa2V5WCBYfEgDBeOzobablffxwrI5DS5510ZSgICLCRWAHyaQhHN1bnRydXN0ZWRfcmF3X3ZhbHVlWGCkY2ZlZaJjZ2FzGQTwZmFtb3VudEEAZGJvZHmiYnRvVQDFGO5FeVUsepbIutjehiwlwJMjrmZhbW91bnREATEtAGVub25jZRNmbWV0aG9kcHN0YWtpbmcuVHJhbnNmZXI=
-[2m[22m
-[2m      [2mat signTransactiongrpc ([22m[2mwallet/index.ts[2m:73:13)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    sent
-[2m[22m
-[2m      [2mat signTransactiongrpc ([22m[2mwallet/index.ts[2m:75:13)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    undefined
-[2m[22m
-[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:41:17)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    omlzaWduYXR1cmWiaXNpZ25hdHVyZVhAQj8E0PzyVF47cqC1FPgqC3rKKAg8ALarR2XtH8Irw7BshvMyP8TdjlgNs7hI/BZ7p2WHDo+I4rhZjr5LM39TCGpwdWJsaWNfa2V5WCBYfEgDBeOzobablffxwrI5DS5510ZSgICLCRWAHyaQhHN1bnRydXN0ZWRfcmF3X3ZhbHVlWGCkY2ZlZaJjZ2FzGQYhZmFtb3VudEEAZGJvZHmiYnRvVQDFGO5FeVUsepbIutjehiwlwJMjrmZhbW91bnREAvrwgGVub25jZRBmbWV0aG9kcHN0YWtpbmcuVHJhbnNmZXI=
-[2m[22m
-[2m      [2mat signTransaction ([22m[2mwallet/index.ts[2m:95:13)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A[999D[K
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  [2mconsole.log[22m
-    undefined
-[2m[22m
-[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/unit.test.ts[39m[0m[2m:54:17)[22m[2m[22m
-
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026h[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026l[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mtest/[22m[1munit.test.ts[22m ([0m[1m[41m5.438 s[49m[22m[0m)
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A  oasis unit test case
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A    [32m✓[39m [2mHello World (11 ms)[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A    [32m✓[39m [2mcreateAddress (51 ms)[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A    [32m✓[39m [2mimportAddress[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A    [32m✓[39m [2msign transaction grpc (5044 ms)[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A    [32m✓[39m [2msign transaction (21 ms)[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[K[1A[K[1A
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1munit.test.ts[22m
-[?2026h[K[1A[K[1A[?2026l[999D[K[1mTest Suites: [22m[1m[32m1 passed[39m[22m, 1 total
-[1mTests:       [22m[1m[32m5 passed[39m[22m, 5 total
-[1mSnapshots:   [22m0 total
-[1mTime:[22m        5.465 s, estimated 6 s
-[2mRan all test suites[22m[2m.[22m
-[?2026h[?2026l
