@@ -1,22 +1,60 @@
 {
-  "author": "seek.guo",
+  "name": "chain-near",
+  "version": "1.0.0",
+  "description": "near wallet sdk",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "browser": "dist/umd/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && npm run build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:the-web3/chain-wallet-sdk.git"
+  },
+  "author": "qs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/the-web3/bitcoin-sdk-lite/issues"
+    "url": "https://github.com/the-web3/chain-wallet-sdk/issues"
   },
-  "homepage": "https://github.com/the-web3/bitcoin-sdk-lite#readme",
+  "homepage": "https://github.com/the-web3/chain-wallet-sdk#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@types/bn.js": "^5.1.6",
     "bn.js": "^5.2.1",
     "near-api-js": "^0.44.2"
   },
   "devDependencies": {
-    "@types/jest": "^29.0.0",
-    "@types/node": "^22.13.4",
-    "jest": "^29.0.0",
-    "ts-jest": "^29.0.0"
+    "@babel/core": "^7.25.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.25.7",
+    "@babel/preset-env": "^7.25.8",
+    "@types/jest": "^27",
+    "@types/node": "^22.13.1",
+    "@umijs/test": "^4",
+    "babel-plugin-minify-dead-code-elimination": "^0.5.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-preset-minify": "^0.5.2",
+    "father": "^4.5.1-beta.4",
+    "jest": "^30.0.0-alpha.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-node": "^10",
+    "typescript": "^4"
   },
-  "scripts": {
-    "test": "jest"
+  "engines": {
+    "node": ">=18.0.0 <=22.0.0"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/cjs/index.d.ts"
+    }
   }
 }

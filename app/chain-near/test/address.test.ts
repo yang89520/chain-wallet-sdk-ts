@@ -1,5 +1,6 @@
+// @ts-ignore
 import assert from "assert";
-import { generateNearAccount, importPrivateKey } from "../src/address";
+import { generateNearAccount, importPrivateKey } from "../wallet/address";
 
 // ...existing code...
 
@@ -8,7 +9,7 @@ describe("Address Module Tests", () => {
 		const account = generateNearAccount();
         console.log(account);
     });
-	
+
 	test("should import private key and produce a matching key pair", () => {
 		const originalKeyPair = generateNearAccount();
 		const secretKeyStr = originalKeyPair.privateKey;

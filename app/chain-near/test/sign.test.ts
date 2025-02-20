@@ -1,8 +1,10 @@
+// @ts-ignore
 import assert from "assert";
+// @ts-ignore
 import BN from "bn.js";
 import { transactions } from "near-api-js";
-import { signTransaction } from "../src/sign";
-import { importPrivateKey } from "../src/address";
+import { signTransaction } from "../wallet/sign";
+import { importPrivateKey } from "../wallet/address";
 
 
 describe("Offline Transaction Signing", () => {
