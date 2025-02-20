@@ -1,6 +1,6 @@
 import { Interface } from '@ethersproject/abi';
 import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx'
-import * as bip from '../bip/bip';
+import * as bip from './bip/bip';
 import Common from '@ethereumjs/common'
 import * as ethers from 'ethers';
 import BigNumber from 'bignumber.js';

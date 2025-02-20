@@ -1,6 +1,6 @@
 import { ethers } from "ethers/lib";
 import * as bip from "../wallet/bip/bip";
-import * as wallet from "../wallet/zen/wallet";
+import * as wallet from "../wallet/index";
 import { arrayify } from "ethers/lib/utils";
 import { keys } from "./env";
 
