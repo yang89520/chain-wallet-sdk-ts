@@ -1,5 +1,5 @@
 {
-  "name": "day1",
+  "name": "chain-icp",
   "version": "1.0.0",
   "description": "wallet include hd and AA wallet",
   "main": "dist/cjs/index.js",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FishcakeLab/wallet-sdk.git"
+    "url": "git+https://github.com/the-web3/wallet-sdk.git"
   },
   "author": "seek",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FishcakeLab/wallet-sdk/issues"
+    "url": "https://github.com/the-web3/wallet-sdk/issues"
   },
-  "homepage": "https://github.com/FishcakeLab/wallet-sdk#readme",
+  "homepage": "https://github.com/the-web3/wallet-sdk#readme",
   "publishConfig": {
     "access": "public"
   },
