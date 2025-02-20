@@ -355,7 +355,7 @@ curl --location 'https://eon-rpc.horizenlabs.io/ethv1/ethv1' \
 ```
 
 ## 五. 签名节点搭建
-nodejs 不是很懂...
+pnpm build
 
 ### 钱包 RPC 节点的搭建方式
 https://docs.horizen.io/horizen_eon/tutorials/forger_node_setup_guide/

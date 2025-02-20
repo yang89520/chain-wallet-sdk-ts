@@ -1,7 +1,4 @@
-import { ethers } from "ethers/lib";
 import * as bip from "../wallet/bip/bip";
-import * as wallet from "../wallet/zen/wallet";
-import { arrayify } from "ethers/lib/utils";
 
 var mnemonicLength = [12, 15, 18, 21, 24];
 var mnemonicList: string[] = [];
