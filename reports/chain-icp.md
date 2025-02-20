@@ -3,6 +3,10 @@
 icp wallet sdk
 
 - RPC URL(open node)
+    - 没有传统的公开 RPC 节点，官方没有提供一个默认的、全网共享的“公开 RPC 节点”来直接连接网络。
+    - 边界节点是公开可访问的，任何人都可以通过 HTTPS 接口（如 https://ic0.app 或 https://icp-api.io）与 ICP 主网交互。这些节点由
+      DFINITY 和社区节点提供商共同维护。这里 icp-api.io 是一个公开的边界节点端点。
+    - ICP 支持 Rosetta API（一种区块链标准接口），可以通过 Docker 部署 Rosetta 节点连接到 ICP 主网。这不是传统 RPC，但提供了类似功能。
 - 钱包 RPC 节点的搭建方式
     - https://wiki.internetcomputer.org/wiki/Node_Provider_Onboarding
     - 成为 ICP 上的节点提供商需要 DAO 社区的投票。这样做有两个原因：
