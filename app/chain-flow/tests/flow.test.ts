@@ -1,0 +1,65 @@
+import {
+  CreateNewAccountTx,
+  signTransaction,
+  transactionToHTTP,
+  CreateTransferTx,
+  CreateKeyByMnemonic
+} from '../wallet';
+
+
+
+describe("flow", () => {
+
+  //助记词生成公私钥
+  test('createKeyByMnemonic', () => {
+    const memonic ="buyer echo rival aunt execute pledge silent cushion quantum model grunt harbor"
+    console.log("createKeyByMnemonic()",CreateKeyByMnemonic(memonic))
+  })
+
+
+  //创建账户
+  test('account', async () => {
+    //被绑定的公钥
+    const publicKeyHex = '0x8ad590103f3b5031f1a423864f31b72ecd61f4bb9edf892b0588d27bd4efec2c34e7ac4942cc507a09be5bb2a2b5c15549c7bb95d178a61a18638a10e2dccf1d';
+    const payer = '0xe40303d90745ff5b';
+    const refBlockId = '6a3da9d9d3d2029b36cadaad63227c02803a8845904c0433ca121bd564070038';
+    const payerSequenceNumber = 7;
+    const gasLimit = 9999;
+    const tx = CreateNewAccountTx(publicKeyHex, payer, refBlockId, payerSequenceNumber, gasLimit);
+    console.log("生成交易",tx)
+
+    const signPrivKeyHex = "5e7163b759d07980dc88cd4d7aba91583d075871c7ffd9f1a9ef11c9645a682b"
+    const signAddr = "0xe40303d90745ff5b"
+    const signed = signTransaction(tx, [], [{id: 0, address: signAddr, private_key: signPrivKeyHex}])
+    console.log("签名后",signed)
+    const httpTx = transactionToHTTP(signed)
+    console.info("json报文",httpTx)
+  });
+
+  // {"script":"aW1wb3J0IENyeXB0bwoKdHJhbnNhY3Rpb24ocHVibGljS2V5czogW0NyeXB0by5LZXlMaXN0RW50cnldLCBjb250cmFjdHM6IHtTdHJpbmc6IFN0cmluZ30pIHsKCXByZXBhcmUoc2lnbmVyOiBBdXRoQWNjb3VudCkgewoJCWxldCBhY2NvdW50ID0gQXV0aEFjY291bnQocGF5ZXI6IHNpZ25lcikKCgkJLy8gYWRkIGFsbCB0aGUga2V5cyB0byB0aGUgYWNjb3VudAoJCWZvciBrZXkgaW4gcHVibGljS2V5cyB7CgkJCWFjY291bnQua2V5cy5hZGQocHVibGljS2V5OiBrZXkucHVibGljS2V5LCBoYXNoQWxnb3JpdGhtOiBrZXkuaGFzaEFsZ29yaXRobSwgd2VpZ2h0OiBrZXkud2VpZ2h0KQoJCX0KCQkKCQkvLyBhZGQgY29udHJhY3RzIGlmIHByb3ZpZGVkCgkJZm9yIGNvbnRyYWN0IGluIGNvbnRyYWN0cy5rZXlzIHsKCQkJYWNjb3VudC5jb250cmFjdHMuYWRkKG5hbWU6IGNvbnRyYWN0LCBjb2RlOiBjb250cmFjdHNbY29udHJhY3RdIS5kZWNvZGVIZXgoKSkKCQl9Cgl9Cn0KIA==","arguments":["eyJ0eXBlIjoiQXJyYXkiLCJ2YWx1ZSI6W3sidHlwZSI6IlN0cnVjdCIsInZhbHVlIjp7ImlkIjoiSS5DcnlwdG8uQ3J5cHRvLktleUxpc3RFbnRyeSIsImZpZWxkcyI6W3sibmFtZSI6ImtleUluZGV4IiwidmFsdWUiOnsidHlwZSI6IkludCIsInZhbHVlIjoiMTAwMCJ9fSx7Im5hbWUiOiJwdWJsaWNLZXkiLCJ2YWx1ZSI6eyJ0eXBlIjoiU3RydWN0IiwidmFsdWUiOnsiaWQiOiJQdWJsaWNLZXkiLCJmaWVsZHMiOlt7Im5hbWUiOiJwdWJsaWNLZXkiLCJ2YWx1ZSI6eyJ0eXBlIjoiQXJyYXkiLCJ2YWx1ZSI6W3sidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyNDgifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMjAzIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjEwNyJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjYyIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjEwMCJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyNDcifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTkyIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjE1NiJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyMzcifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiNjkifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMjM0In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjQ2In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjE2NCJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyMTEifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiNzgifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTA3In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjIzMiJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyMzQifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTQ4In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjE3OCJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiI0MSJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyMjIifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTc0In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjEwIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjE5NSJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiI2NSJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIxODYifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMjEifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTQzIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjE5MyJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIxNDQifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMjMzIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjEyMiJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIxMDUifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiODgifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMzUifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMjA4In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjExNSJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiI4MyJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIyMzcifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTcxIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjU2In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjIwOSJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIxNjgifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTgxIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjEwOSJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIxMjMifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMjAifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMiJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIxODAifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTg5In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjI1MiJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIxMTUifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMjIifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTI1In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjU4In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjAifSx7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMTU2In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6Ijk3In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6Ijk5In0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjIzMyJ9LHsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIzIn0seyJ0eXBlIjoiVUludDgiLCJ2YWx1ZSI6IjEzMCJ9XX19LHsibmFtZSI6InNpZ25hdHVyZUFsZ29yaXRobSIsInZhbHVlIjp7InR5cGUiOiJFbnVtIiwidmFsdWUiOnsiaWQiOiJTaWduYXR1cmVBbGdvcml0aG0iLCJmaWVsZHMiOlt7Im5hbWUiOiJyYXdWYWx1ZSIsInZhbHVlIjp7InR5cGUiOiJVSW50OCIsInZhbHVlIjoiMSJ9fV19fX1dfX19LHsibmFtZSI6Imhhc2hBbGdvcml0aG0iLCJ2YWx1ZSI6eyJ0eXBlIjoiRW51bSIsInZhbHVlIjp7ImlkIjoiSGFzaEFsZ29yaXRobSIsImZpZWxkcyI6W3sibmFtZSI6InJhd1ZhbHVlIiwidmFsdWUiOnsidHlwZSI6IlVJbnQ4IiwidmFsdWUiOiIzIn19XX19fSx7Im5hbWUiOiJ3ZWlnaHQiLCJ2YWx1ZSI6eyJ0eXBlIjoiVUZpeDY0IiwidmFsdWUiOiIxMDAwLjAwMDAwMDAwIn19LHsibmFtZSI6ImlzUmV2b2tlZCIsInZhbHVlIjp7InR5cGUiOiJCb29sIiwidmFsdWUiOmZhbHNlfX1dfX1dfQ==","eyJ0eXBlIjoiRGljdGlvbmFyeSIsInZhbHVlIjpbXX0="],"reference_block_id":"515669809599fda6de69047faa8bdddfab4840cf7a162e56d13a4b9942427e4a","gas_limit":"9999","payer":"e40303d90745ff5b","proposal_key":{"address":"e40303d90745ff5b","key_index":"0","sequence_number":"0"},"authorizers":["e40303d90745ff5b"],"payload_signatures":[],"envelope_signatures":[{"address":"e40303d90745ff5b","key_index":"0","signature":"el7fF92+OdBPxSCXJ4jfFo8r20yW+rwDcNTwk0C35TMuvzziMsRpS6sZeAbuDSoRZF6gZneQ3fQzkk0Ontw98g=="}]}
+
+
+  //转账
+  test('transfer', async () => {
+    const payer = '0xe40303d90745ff5b';
+    const refBlockId = '3dc4bb6f526ea0c8357e31f35eccc14cebbaf2f7baa75464d1f65fe606c8b1a6';
+    const payerSequenceNumber = 10;
+    const gasLimit = 9999;
+    const amount = "0.010000"
+    const toAddr = "0x694b6cbf9e36770a"
+
+    const tx = CreateTransferTx(amount, toAddr, payer, refBlockId, payerSequenceNumber, gasLimit);
+
+    const signPrivKeyHex = "5e7163b759d07980dc88cd4d7aba91583d075871c7ffd9f1a9ef11c9645a682b"
+    const signAddr = "0xe40303d90745ff5b"
+    const signed = signTransaction(tx, [], [{id: 0, address: signAddr, private_key: signPrivKeyHex}])
+    console.info(signed)
+
+    const httpTx = transactionToHTTP(signed)
+
+    console.info("json报文",httpTx)
+  });
+
+
+
+});
