@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+git@github.com:the-web3/chain-wallet-sdk.git"
   },
-  "author": "qs",
+  "author": "joker",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/the-web3/chain-wallet-sdk/issues"

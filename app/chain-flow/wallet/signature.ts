@@ -1,17 +1,24 @@
 import { rightPaddedHexBuffer } from '../common/enode';
 import { sha3_256 } from "@noble/hashes/sha3";
+import { sha256 } from "@noble/hashes/sha2";
 
 const utils = require('../common/utils');
 const secp256k1 = require('secp256k1');
 
 export const TX_DOMAIN_TAG_HEX = rightPaddedHexBuffer(Buffer.from('FLOW-V0.0-transaction', 'utf-8').toString('hex'), 32).toString('hex');
 
-export const transactionSignature = (msg: string, privateKey: Buffer): string => {
+export const transactionSignature = (msg: string, privateKey: Buffer,hash:string,encrypt:string): string => {
   const messageForHash = utils.fromHex(TX_DOMAIN_TAG_HEX + msg);
-
-  const digest = sha3_256(messageForHash);
-  console.log("digest", digest);
-  const sig = secp256k1.ecdsaSign(Buffer.from(digest), privateKey);
+  //选择哈希算法 sha256或者sha3_256
+  let digest= sha3_256(messageForHash);
+  if(hash=="sha256"){
+    digest=sha256(messageForHash);
+  }
+  //选择加密算法ECDSA_Secp256k1或ECDSA_P256
+  let sig = secp256k1.ecdsaSign(Buffer.from(digest), privateKey);
+  if(encrypt=="ECDSA_P256"){
+    sig = secp256k1.ecdsaSign(Buffer.from(digest), privateKey);
+  }
   return utils.toHex(sig.signature);
 };
 

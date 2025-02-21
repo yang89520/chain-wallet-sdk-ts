@@ -23,7 +23,7 @@ export function signTransaction(transaction: Transaction, payloadSignatures: Acc
       payer: tr.payer.toString('hex'),
       authorizers: tr.authorizers.map((x) => x.toString('hex')),
     });
-    const thisSig = transactionSignature(payloadMsg, utils.fromHex(ps.private_key));
+    const thisSig = transactionSignature(payloadMsg, utils.fromHex(ps.private_key),"","");
     tr.payload_signatures.push({ address: Buffer.from(<string>ps.address, 'hex'), key_id: <number>ps.id, signature: Buffer.from(thisSig, 'hex') });
     payloadSigs.push({ address: <string>ps.address, keyId: <number>ps.id, sig: thisSig });
   });
@@ -42,7 +42,7 @@ export function signTransaction(transaction: Transaction, payloadSignatures: Acc
       payload_signatures: payloadSigs,
       authorizers: tr.authorizers.map((x) => x.toString('hex')),
     });
-    const thisSig = transactionSignature(envelopeMsg, utils.fromHex(es.private_key));
+    const thisSig = transactionSignature(envelopeMsg, utils.fromHex(es.private_key),"","");
     tr.envelope_signatures.push({ address: utils.fromHex(es.address), key_id: es.id, signature: utils.fromHex(thisSig) });
   });
   return tr;
