@@ -59,6 +59,7 @@ Zcash 是一个独立的区块链，但它也与比特币及其他加密货币�
   - 搭建文档参考附录
 
 ### 2.3 Zcash链模型
+
 - 经过区块浏览器及交易发送考证，典型**UTXO（Unspent Transaction Output）模型**
 
 ### 2.4 签名算法
@@ -72,6 +73,7 @@ Zcash 是一个独立的区块链，但它也与比特币及其他加密货币�
   Sprout JoinSplit signatures use Ed25519 (as implemented in libsodium 1.0.15).
   
   Sapling spend authorization and binding signatures use RedDSA, a rerandomizable signature scheme similar to Schnorr and EdDSA, over the Jubjub curve.
+
 
 ### 2.5 代币精度
 - 从比特币拓展而来，保持8位
@@ -154,6 +156,7 @@ Zcash 是一个独立的区块链，但它也与比特币及其他加密货币�
 
 ### 3.1 扫链的 RPC 接口
 扫链是指通过 RPC 接口查询区块链交易、账户等信息。
+
 #### 3.1.1 获取链上最高区块hash：`getbestblockhash`
 
 - 参数：无
@@ -185,12 +188,6 @@ Zcash 是一个独立的区块链，但它也与比特币及其他加密货币�
 
 #### 3.1.5 获取当前区块高度：`getblockcount`
 
-- 参数：[]
-
-- 结果：返回区块高度
-
-  `{"result":2828594,"error":null,"id":"curltest"}`
-
 - 发送交易：sendrawtransaction
 
   - 参数：16进制的签名后交易
@@ -217,7 +214,7 @@ Zcash 是一个独立的区块链，但它也与比特币及其他加密货币�
 
 - 结果：返回json格式解码后的内容
 
-  ​	`{"result":{"txid":"091143a62d1b7968e1d9f6867343bcec913785777a6d4439a153871bbe52773e","authdigest":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","size":245,"overwintered":true,"version":4,"versiongroupid":"892f2085","locktime":0,"expiryheight":0,"hex":"0400008085202f8901da837895116937c8b319b6a11260aab51ac4538cf65afec70ffa2f6c4091015b000000006b483045022100a1346718885adfd6ab6a527bcb3255f9f425392f99c3486eda3a6a5c0060afd502201202b2db8cdbbcdd74bdfe976f9670af122779fcd79f3b3a335221a7d5effc210121036e418e6b13e19614d67e281d2635fff7fa5e5d6e10eb6ed03d59dd3fd570ad5cffffffff02a0860100000000001976a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac400d0300000000001976a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac00000000000000000000000000000000000000","vin":[{"txid":"5b0191406c2ffa0fc7fe5af68c53c41ab5aa6012a1b619b3c8376911957883da","vout":0,"scriptSig":{"asm":"3045022100a1346718885adfd6ab6a527bcb3255f9f425392f99c3486eda3a6a5c0060afd502201202b2db8cdbbcdd74bdfe976f9670af122779fcd79f3b3a335221a7d5effc21[ALL] 036e418e6b13e19614d67e281d2635fff7fa5e5d6e10eb6ed03d59dd3fd570ad5c","hex":"483045022100a1346718885adfd6ab6a527bcb3255f9f425392f99c3486eda3a6a5c0060afd502201202b2db8cdbbcdd74bdfe976f9670af122779fcd79f3b3a335221a7d5effc210121036e418e6b13e19614d67e281d2635fff7fa5e5d6e10eb6ed03d59dd3fd570ad5c"},"sequence":4294967295}],"vout":[{"value":0.00100000,"valueZat":100000,"valueSat":100000,"n":0,"scriptPubKey":{"asm":"OP_DUP OP_HASH160 cdf701a79db78a495a1cbc1cdf99d81d93ca17f5 OP_EQUALVERIFY OP_CHECKSIG","hex":"76a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac","reqSigs":1,"type":"pubkeyhash","addresses":["t1ceeRyG2EU3d5cWNoYEMQH8FASEj7AYrWa"]}},{"value":0.00200000,"valueZat":200000,"valueSat":200000,"n":1,"scriptPubKey":{"asm":"OP_DUP OP_HASH160 cdf701a79db78a495a1cbc1cdf99d81d93ca17f5 OP_EQUALVERIFY OP_CHECKSIG","hex":"76a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac","reqSigs":1,"type":"pubkeyhash","addresses":["t1ceeRyG2EU3d5cWNoYEMQH8FASEj7AYrWa"]}}],"vjoinsplit":[],"valueBalance":0.00000000,"valueBalanceZat":0,"vShieldedSpend":[],"vShieldedOutput":[]},"error":null,"id":"curltest"}`
+  	`{"result":{"txid":"091143a62d1b7968e1d9f6867343bcec913785777a6d4439a153871bbe52773e","authdigest":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","size":245,"overwintered":true,"version":4,"versiongroupid":"892f2085","locktime":0,"expiryheight":0,"hex":"0400008085202f8901da837895116937c8b319b6a11260aab51ac4538cf65afec70ffa2f6c4091015b000000006b483045022100a1346718885adfd6ab6a527bcb3255f9f425392f99c3486eda3a6a5c0060afd502201202b2db8cdbbcdd74bdfe976f9670af122779fcd79f3b3a335221a7d5effc210121036e418e6b13e19614d67e281d2635fff7fa5e5d6e10eb6ed03d59dd3fd570ad5cffffffff02a0860100000000001976a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac400d0300000000001976a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac00000000000000000000000000000000000000","vin":[{"txid":"5b0191406c2ffa0fc7fe5af68c53c41ab5aa6012a1b619b3c8376911957883da","vout":0,"scriptSig":{"asm":"3045022100a1346718885adfd6ab6a527bcb3255f9f425392f99c3486eda3a6a5c0060afd502201202b2db8cdbbcdd74bdfe976f9670af122779fcd79f3b3a335221a7d5effc21[ALL] 036e418e6b13e19614d67e281d2635fff7fa5e5d6e10eb6ed03d59dd3fd570ad5c","hex":"483045022100a1346718885adfd6ab6a527bcb3255f9f425392f99c3486eda3a6a5c0060afd502201202b2db8cdbbcdd74bdfe976f9670af122779fcd79f3b3a335221a7d5effc210121036e418e6b13e19614d67e281d2635fff7fa5e5d6e10eb6ed03d59dd3fd570ad5c"},"sequence":4294967295}],"vout":[{"value":0.00100000,"valueZat":100000,"valueSat":100000,"n":0,"scriptPubKey":{"asm":"OP_DUP OP_HASH160 cdf701a79db78a495a1cbc1cdf99d81d93ca17f5 OP_EQUALVERIFY OP_CHECKSIG","hex":"76a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac","reqSigs":1,"type":"pubkeyhash","addresses":["t1ceeRyG2EU3d5cWNoYEMQH8FASEj7AYrWa"]}},{"value":0.00200000,"valueZat":200000,"valueSat":200000,"n":1,"scriptPubKey":{"asm":"OP_DUP OP_HASH160 cdf701a79db78a495a1cbc1cdf99d81d93ca17f5 OP_EQUALVERIFY OP_CHECKSIG","hex":"76a914cdf701a79db78a495a1cbc1cdf99d81d93ca17f588ac","reqSigs":1,"type":"pubkeyhash","addresses":["t1ceeRyG2EU3d5cWNoYEMQH8FASEj7AYrWa"]}}],"vjoinsplit":[],"valueBalance":0.00000000,"valueBalanceZat":0,"vShieldedSpend":[],"vShieldedOutput":[]},"error":null,"id":"curltest"}`
 
 #### 3.1.8 获取交易内存池信息（预估手续费）：
 
@@ -230,7 +227,6 @@ Zcash 是一个独立的区块链，但它也与比特币及其他加密货币�
 - 结果：其中fee字段交易总费用，size为交易字节数，计算费率可采用fee/size
 
   `{"result":{"8ca61e8a50a1a04835267bbc780c95c78f86188abeb426b55dc02f97f8c990a9":{"size":245,"fee":0.00010000,"modifiedfee":0.00010000,"time":1740131206,"height":2829477,"descendantcount":1,"descendantsize":245,"descendantfees":10000,"depends":[]},"9d38d2fdc3150774306fc0dc825e41dddfd78947b6d0445b289d3e184fae8cde":{"size":245,"fee":0.00011300,"modifiedfee":0.00011300,"time":1740131229,"height":2829477,"descendantcount":1,"descendantsize":245,"descendantfees":11300,"depends":[]}},"error":null,"id":"curltest"}`
-
 
 
 ---

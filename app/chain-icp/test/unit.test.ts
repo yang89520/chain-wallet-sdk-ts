@@ -1,4 +1,4 @@
-import {mnemonicToSeed, createIcpAddress, importIcpAddress} from "../wallet";
+import {mnemonicToSeed, createIcpAddress, importIcpAddress, verifyIcpAddress} from "../wallet";
 
 const dotenv = require('dotenv');
 
@@ -27,5 +27,14 @@ describe('icp unit test case', () => {
         let accountInfo = importIcpAddress(params);
         console.log(accountInfo);
     });
+
+    test('verifyAddress', () => {
+        const params = {
+            principalText: process.env.PRINCIPAL,
+            accountText: process.env.ACCOUNT,
+        }
+        let isMatch = verifyIcpAddress(params);
+        console.log(isMatch);
+    })
 
 });

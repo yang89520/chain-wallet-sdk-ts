@@ -3,14 +3,11 @@ import {Secp256k1KeyIdentity} from "@dfinity/identity-secp256k1";
 import {AccountIdentifier} from "@dfinity/ledger-icp";
 import {uint8ArrayToHexString, hexStringToUint8Array} from "@dfinity/utils";
 import {HDKey} from "@scure/bip32";
-
+import {Principal} from "@dfinity/principal"
 
 const {lebEncode} = require('@dfinity/candid');
-const {HttpAgent, Actor, Principal} = require('@dfinity/agent');
-const {ledgerIDL} = require('./ledger_idl');
 const crypto = require('crypto');
 
-const LEDGER_CANISTER_ID = Principal.fromText('ryjl3-tyaaa-aaaaa-aaaba-cai');
 
 export function createIcpAddress(seed: Uint8Array, addressIndex: string) {
     const root = HDKey.fromMasterSeed(seed);
@@ -41,6 +38,16 @@ export function importIcpAddress(params: any) {
         address: address
     };
     return JSON.stringify(hdWallet);
+}
+
+export function verifyIcpAddress(params: any) {
+    const {principalText, accountText, subAccount} = params;
+    const principal = Principal.fromText(principalText);
+    const expectedAccountId = AccountIdentifier.fromPrincipal({
+        principal: principal,
+        subAccount: subAccount // 如果未提供，则使用默认子账户（全零）
+    });
+    return expectedAccountId.toHex() === accountText.toLowerCase();
 }
 
 export async function offlineSign(message: string, privateKey: string) {
@@ -76,79 +83,6 @@ export function toAccountIdentifier(principal: any, subaccount = new Uint8Array(
     const hash = sha224(buffer);
     const checksum = crc32(Buffer.from(hash, 'hex'));
     return Buffer.concat([Buffer.from(checksum), Buffer.from(hash, 'hex')]).toString('hex');
-}
-
-export function crc32(data: any) {
-    const crcTable = (() => {
-        const table = new Uint32Array(256);
-        for (let i = 0; i < 256; i++) {
-            let c = i;
-            for (let j = 0; j < 8; j++) {
-                c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
-            }
-            table[i] = c;
-        }
-        return table;
-    })();
-
-    let crc = 0xFFFFFFFF;
-    for (let i = 0; i < data.length; i++) {
-        crc = (crc >>> 8) ^ crcTable[(crc ^ data[i]) & 0xFF];
-    }
-    return Buffer.from([(crc ^ 0xFFFFFFFF) >>> 0]).reverse();
-}
-
-export function createLedgerActor(agent: any) {
-    return Actor.createActor(ledgerIDL, {
-        agent,
-        canisterId: LEDGER_CANISTER_ID,
-    });
-}
-
-// @ts-ignore
-async function scanICPTransactions(startBlock = 0n, length = 100n) {
-    try {
-        const agent = new HttpAgent({host: 'https://ic0.app'});
-        const ledgerActor = createLedgerActor(agent);
-
-        const queryArgs = {
-            start: BigInt(startBlock),
-            length: BigInt(length),
-        };
-
-        const response = await ledgerActor.query_blocks(queryArgs);
-
-        console.log(`Chain length: ${response.chain_length}`);
-        console.log(`First block index: ${response.first_block_index}`);
-        console.log(`Queried blocks count: ${response.blocks.length}`);
-
-        const transactions = response.blocks.map((block: any, index: number) => {
-            const tx = block.transaction;
-            return {
-                blockIndex: Number(response.first_block_index) + index,
-                timestamp: Number(block.timestamp.timestamp_nanos) / 1000000, // 转换为毫秒
-                fromSubaccount: tx.from_subaccount[0] ? Buffer.from(tx.from_subaccount[0]).toString('hex') : null,
-                to: tx.to,
-                amount: Number(tx.amount.e8s) / 100000000, // 转换为 ICP
-                memo: Number(tx.memo),
-            };
-        });
-
-        // 处理归档块（如果有）
-        if (response.archived_blocks.length > 0) {
-            console.log('Found archived blocks:', response.archived_blocks.length);
-            // 可以进一步查询归档数据，这里只打印提示
-        }
-
-        return {
-            chainLength: Number(response.chain_length),
-            transactions,
-            hasMore: Number(response.first_block_index) + response.blocks.length < Number(response.chain_length),
-        };
-    } catch (error) {
-        console.error('Error scanning transactions:', error);
-        throw error;
-    }
 }
 
 
@@ -196,8 +130,28 @@ export function buildICPTransferRequest(params: any) {
     }
 }
 
-export function mnemonicToSeed(params: { mnemonic: any; password: any; }) {
+export function mnemonicToSeed(params: any) {
     const {mnemonic, password} = params;
     if (!mnemonic) throw new Error('Must have mnemonic');
     return bip39.mnemonicToSeedSync(mnemonic, password);
+}
+
+export function crc32(data: any) {
+    const crcTable = (() => {
+        const table = new Uint32Array(256);
+        for (let i = 0; i < 256; i++) {
+            let c = i;
+            for (let j = 0; j < 8; j++) {
+                c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+            }
+            table[i] = c;
+        }
+        return table;
+    })();
+
+    let crc = 0xFFFFFFFF;
+    for (let i = 0; i < data.length; i++) {
+        crc = (crc >>> 8) ^ crcTable[(crc ^ data[i]) & 0xFF];
+    }
+    return Buffer.from([(crc ^ 0xFFFFFFFF) >>> 0]).reverse();
 }
