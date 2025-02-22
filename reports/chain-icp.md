@@ -63,10 +63,91 @@ icp wallet sdk
 - 离线地址生成方
     - 已完成（createIcpAddress）
 - 离线签名
+    - 已完成（offlineSign）
 - 扫链的 RPC 接口
-    - 把接口参数说清楚
+    - Rosetta API: 
+      - https://{{domain_rul}}/block
 - 扫链回来的交易的解析
-
+```json
+{
+    "block": {
+        "block_identifier": {
+            "index": 20675780,
+            "hash": "d105abebd1bf7325bca6917c04a73fed2b120a431c00c6996f1fa46d558d1b3f"
+        },
+        "parent_block_identifier": {
+            "index": 20675779,
+            "hash": "2ecacebd3af295aae5691d7d389413781bf7660c002c19340698c191fa5d2eef"
+        },
+        "timestamp": 1740207569662,
+        "transactions": [
+            {
+                "transaction_identifier": {
+                    "hash": "e72ed0ae3b787b1aa1e45d5087c31d7cb13632b3f03b6a5dd871f9bfce2ef689"
+                },
+                "operations": [
+                    {
+                        "operation_identifier": {
+                            "index": 0
+                        },
+                        "type": "TRANSACTION",
+                        "status": "COMPLETED",
+                        "account": {
+                            "address": "3caf8e326ebe1916c47be71560ffd417a8b2d2692932334e0606296a7c01ab9e"
+                        },
+                        "amount": {
+                            "value": "-500000000",
+                            "currency": {
+                                "symbol": "ICP",
+                                "decimals": 8
+                            }
+                        }
+                    },
+                    {
+                        "operation_identifier": {
+                            "index": 1
+                        },
+                        "type": "TRANSACTION",
+                        "status": "COMPLETED",
+                        "account": {
+                            "address": "a498bfac62d235242a60c2141bdad25c7924b62676af755286fa3b8eead72889"
+                        },
+                        "amount": {
+                            "value": "500000000",
+                            "currency": {
+                                "symbol": "ICP",
+                                "decimals": 8
+                            }
+                        }
+                    },
+                    {
+                        "operation_identifier": {
+                            "index": 2
+                        },
+                        "type": "FEE",
+                        "status": "COMPLETED",
+                        "account": {
+                            "address": "3caf8e326ebe1916c47be71560ffd417a8b2d2692932334e0606296a7c01ab9e"
+                        },
+                        "amount": {
+                            "value": "-10000",
+                            "currency": {
+                                "symbol": "ICP",
+                                "decimals": 8
+                            }
+                        }
+                    }
+                ],
+                "metadata": {
+                    "block_height": 20675780,
+                    "memo": 0,
+                    "timestamp": 1740207569662046680
+                }
+            }
+        ]
+    }
+}
+```
 - 扫链回来的交易手续费的计算
     - ICP 的 Gas 称为Cycle，可以通过燃烧（burning）转换为 Cycles，1 ICP ≈ 1 trillion Cycles
     - Ledger 转账：固定 0.0001 ICP，由发送方支付。
