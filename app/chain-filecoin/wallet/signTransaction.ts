@@ -39,8 +39,7 @@ export function executeOfflineSigning(from:string, to:string, amount:string, non
     )
     // signedMessage
     let signedMessage =  signTransactionOffline(rawMessage, privateKey);
-    let signedMessageJson = JSON.stringify(signedMessage, null, 2);
 
-    return signedMessageJson;
+    return signedMessage;
 }
 
