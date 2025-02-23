@@ -1,9 +1,7 @@
 import * as bip39 from 'bip39';
 
-export function generateMnemonic(params: { number: any; language: any; }) {
-    const { number, language } = params;
+export function generateMnemonic(number: number = 12, language: string = 'english') {
 
-    if (!number || !language) throw new Error('Must have language and language');
     if (!CheckMnemonicLength(number)) throw new Error('Mnemonic length Not Standard!');
     if (!bip39.wordlists.hasOwnProperty(language)) throw new Error('Language not supported');
 

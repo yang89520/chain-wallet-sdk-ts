@@ -1,123 +1,75 @@
-import { Interface } from '@ethersproject/abi';
-import { FeeMarketEIP1559Transaction, Transaction } from '@ethereumjs/tx'
 import * as bip from './bip/bip';
-import Common from '@ethereumjs/common'
-import * as ethers from 'ethers';
-import BigNumber from 'bignumber.js';
+import bip32utils from "bip32-utils";
+import bitcoinjs from "bitcoinjs-lib"
+import * as zencashjs from 'zencashjs';
 
-export function numToHex(value: any) {
-    const number = new BigNumber(value);
-    const result = number.toString(16);
-    return '0x' + result;
+export function test() {
+  console.log("test");
 }
 
-export function generateMnemonic(number?: number | 12, language?: string) {
-    if (!language) {
-        language = 'english'
-    }
-    return bip.generateMnemonic({ number: 12, language: language })
-}
+//reference: https://github.com/HorizenOfficial/zencash-mobile/blob/master/src/utils/wallet.js#L44
+export function phraseToSecretItems(count: number, mnemonic: string) {
+  // Seed key, make it very strong
+  // phraseStr: string
+  const seedHex = bip.mnemonicToSeed({ mnemonic: mnemonic, password: '' }).toString("hex")
 
-export function createZenWalletByWord(mnemonic: string, language?: string) {
-    if (!language) {
-        language = 'english'
-    }
-    const flag = bip.validateMnemonic({ mnemonic: mnemonic, language: language })
-    if (!flag) {
-        throw new Error('Invalid mnemonic')
-    }
+  // chains
+  const hdNode = bitcoinjs.HDNode.fromSeedHex(seedHex)
+  var chain = new bip32utils.Chain(hdNode)
 
-    const seed = bip.mnemonicToSeed({ mnemonic: mnemonic, password: '' })
-    return createZenAddressBySeedHex(seed.toString("hex"), '0', mnemonic)
-}
+  for (var k = 0; k < count; k++) {
+    chain.next()
+  }
+  // Get private keys from them
+  var secretItems = chain.getAll().map(function (x: any) {
+    // Get private key (WIF)
+    const pkWIF = chain.derive(x).keyPair.toWIF()
 
-function createZenAddressBySeedHex(seedHex: string, addressIndex: string, mnemonic: string) {
-    const hdNode = ethers.utils.HDNode.fromSeed(Buffer.from(seedHex, 'hex'));
-    const {
-        privateKey,
-        publicKey,
-        address
-    } = hdNode.derivePath("m/44'/60'/0'/0/" + addressIndex + '');
+    // Private key
+    const privKey = zencashjs.address.WIFToPrivKey(pkWIF)
+
+    // Public key
+    const pubKey = zencashjs.address.privKeyToPubKey(privKey, true)
+
+    // Address
+    const address = zencashjs.address.pubKeyToAddr(pubKey)
+
     return {
-        mnemonic,
-        privateKey,
-        publicKey,
-        address
-    };
+      wif: pkWIF,
+      privateKey: privKey,
+      pubKey,
+      address,
+    }
+  })
+  return secretItems
 }
 
-export function zenSign(params: any) {
-    let { privateKey, nonce, from, to, gasPrice, gasLimit, amount, tokenAddress, decimal, maxPriorityFeePerGas, maxFeePerGas, chainId, data } = params;
-    const transactionNonce = ethers.utils.hexValue(nonce);
-    const gasLimits = ethers.utils.hexValue(gasLimit);
-    const chainIdHex = ethers.utils.hexValue(chainId);
-    let newAmount = new BigNumber(amount).times((new BigNumber(10).pow(decimal)));
-    // console.log(newAmount)
-    const numBalanceHex = numToHex(newAmount);
-    let txData: any = {
-        nonce: transactionNonce,
-        gasLimit: gasLimits,
-        to,
-        from,
-        chainId: chainIdHex,
-        value: numBalanceHex
-    }
-    if (maxFeePerGas && maxPriorityFeePerGas) {
-        txData.maxFeePerGas = ethers.utils.hexValue(maxFeePerGas);
-        txData.maxPriorityFeePerGas = ethers.utils.hexValue(maxPriorityFeePerGas);
-    } else {
-        txData.gasPrice = ethers.utils.hexValue(gasPrice);
-    }
-    if (tokenAddress && tokenAddress !== "0x00") {
-        const ABI = [
-            "function transfer(address to, uint amount)"
-        ];
-        const iface = new Interface(ABI);
-        txData.data = iface.encodeFunctionData("transfer", [to, numBalanceHex]);
-        txData.to = tokenAddress;
-        txData.value = 0;
-    }
-    if (data) {
-        txData.data = data;
-    }
-    let common: any, tx: any;
-    if (txData.maxFeePerGas && txData.maxPriorityFeePerGas) {
-        common = (Common as any).custom({
-            chainId: chainId,
-            defaultHardfork: "london"
-        });
-        tx = FeeMarketEIP1559Transaction.fromTxData(txData, {
-            common
-        });
-    } else {
-        common = (Common as any).custom({ chainId: chainId })
-        tx = Transaction.fromTxData(txData, {
-            common
-        });
-    }
-    const privateKeyBuffer = Buffer.from(privateKey.split('0x')[1], "hex");
-    const signedTx = tx.sign(privateKeyBuffer);
-    const serializedTx = signedTx.serialize();
-    if (!serializedTx) {
-        throw new Error("sign is null or undefined");
-    }
-    return `0x${serializedTx.toString('hex')}`;
+// reference: https://github.com/HorizenOfficial/zencashjs/blob/master/test/transaction.js#L96
+// reference: https://github.com/HorizenOfficial/zencash-mobile/blob/master/src/containers/SendPage.js#L352
+// reference: https://github.com/HorizenOfficial/arizen/blob/master/app/main.js#L1931
+export function signTransaction(txParams: any, secretItems: any) {
+  var txobj = zencashjs.transaction.createRawTx(
+    txParams.paramIn,
+    txParams.paramOut,
+    txParams.blockHeight - 300,
+    txParams.blockHash
+  )
+
+  console.log(secretItems.privateKey)
+  console.log(typeof (secretItems.privateKey))
+  const compressPubKey = true
+  const SIGHASH_ALL = 1
+  const signedobj = zencashjs.transaction.signTx(txobj, 0, secretItems.privateKey, compressPubKey, SIGHASH_ALL)
+
+
+  return zencashjs.transaction.serializeTx(signedobj)
 }
 
-export function importZenWallet(privateKey: string) {
-    const param = ethers.utils.arrayify(privateKey)
-    const wallet = new ethers.Wallet(param);
-    return {
-        privateKey: wallet.privateKey,
-        publicKey: wallet.publicKey,
-        address: wallet.address
-    };
-}
+export function signTransaction2(txobj: any, secretItems: any) {
+  const compressPubKey = true
+  const SIGHASH_ALL = 1
+  const signedobj = zencashjs.transaction.signTx(txobj, 0, secretItems.privateKey, compressPubKey, SIGHASH_ALL)
 
-export function verifyAddress(address: string) {
-    return ethers.utils.isAddress(address);
-}
 
-export function publicKeyToAddress(publicKey: string) {
-    return ethers.utils.computeAddress(publicKey);
+  return zencashjs.transaction.serializeTx(signedobj)
 }
