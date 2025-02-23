@@ -1,5 +1,4 @@
-import { keyDerive } from '../wallet/createAddress';
-import { executeOfflineSigning } from '../wallet/signTransaction';
+import { keyDerive ,executeOfflineSigning} from '../wallet/index';
 const dotenv = require('dotenv');
 
 dotenv.config();
