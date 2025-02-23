@@ -4,4 +4,4 @@
 .DS_Store
 .idea
 .turbo
-gitACP.sh
+.env

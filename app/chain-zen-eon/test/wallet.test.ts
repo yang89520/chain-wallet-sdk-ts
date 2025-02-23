@@ -25,7 +25,6 @@ beforeAll(async () => {
         }
     });
 
-    
     mnemonicLength.forEach(async (mnemonicNum) => {
         const mnemonicWords = bip.generateMnemonic({ number: mnemonicNum, language: 'english' });
         mnemonicList.push(mnemonicWords);
