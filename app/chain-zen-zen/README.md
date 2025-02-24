@@ -1,7 +1,7 @@
 
 ## test
 ```
-pnpm run test
+pnpm test
 ```
 
 如需使用您的助记词进行测试,请在pnpm run test命令后
@@ -10,12 +10,17 @@ pnpm run test
 
 ⚠️⚠️⚠️**请勿上传任何助记词或私钥,以免造成财产损失**⚠️⚠️⚠️
 
-## coverage
+## build
 ```
-pnpm run coverage
+pnpm build
 ```
 
-覆盖率报告: 运行coverage命令后位于 /app/chain-zen-zon/coverage/lcov-report/index.html
+## coverage
+```
+pnpm coverage
+```
+
+覆盖率报告: 运行coverage命令后位于 /app/chain-zen-zen/coverage/lcov-report/index.html
 ```
 ```
 

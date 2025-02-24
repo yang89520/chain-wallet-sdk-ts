@@ -1,7 +1,7 @@
 import * as bip from './bip/bip';
-import bip32utils from "bip32-utils";
-import bitcoinjs from "bitcoinjs-lib"
-import * as zencashjs from 'zencashjs';
+const bip32utils = require("bip32-utils");
+const bitcoin = require('bitcoinjs-lib');
+const zencashjs = require("zencashjs");
 
 export function test() {
   console.log("test");
@@ -14,7 +14,7 @@ export function phraseToSecretItems(count: number, mnemonic: string) {
   const seedHex = bip.mnemonicToSeed({ mnemonic: mnemonic, password: '' }).toString("hex")
 
   // chains
-  const hdNode = bitcoinjs.HDNode.fromSeedHex(seedHex)
+  const hdNode = bitcoin.HDNode.fromSeedHex(seedHex)
   var chain = new bip32utils.Chain(hdNode)
 
   for (var k = 0; k < count; k++) {
