@@ -2,13 +2,13 @@
 zen正处在[Horizen 2.0 migration](https://www.horizen.io/horizen-upgrade) 升级中.目前,horizen[官网](https://www.horizen.io/)不提供pow链(zen)的文档,接口文档等,此调研来源于github上HorizenOfficial的代码库 zen,zencashjs,arizen
 ## 一.链的特性
 ### 账户模型还是 UTXO
-UTXO->[zen代码库](https://vscode.dev/github/HorizenOfficial/zen/blob/main/src/main.h#L465) 
+UTXO->[zen代码库](https://github.com/HorizenOfficial/zen/blob/main/src/main.h#L465) 
 ### 签名算法
-[secp256k1 ecdsa](https://vscode.dev/github/HorizenOfficial/zen/blob/main/src/secp256k1/include/secp256k1.h#L68)
+[secp256k1 ecdsa](https://github.com/HorizenOfficial/zen/blob/main/src/secp256k1/include/secp256k1.h#L68)
 ### 代币精度
 8->[zen代码库](https://github.com/HorizenOfficial/zen/blob/main/src/amount.h#L18)
 ### 共识机制
-[pow](https://vscode.dev/github/HorizenOfficial/zen/blob/main/src/pow.h#L6)
+[pow](https://github.com/HorizenOfficial/zen/blob/main/src/pow.h#L6)
 #### 确认位
 建议提币确认位:
 - 80 block * 2.5min(1block) = 200min
