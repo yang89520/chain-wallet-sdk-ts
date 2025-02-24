@@ -51,25 +51,16 @@ export function signTransaction(txParams: any, secretItems: any) {
   var txobj = zencashjs.transaction.createRawTx(
     txParams.paramIn,
     txParams.paramOut,
-    txParams.blockHeight - 300,
+    txParams.blockHeight,
     txParams.blockHash
   )
 
-  console.log(secretItems.privateKey)
-  console.log(typeof (secretItems.privateKey))
   const compressPubKey = true
   const SIGHASH_ALL = 1
-  const signedobj = zencashjs.transaction.signTx(txobj, 0, secretItems.privateKey, compressPubKey, SIGHASH_ALL)
 
+  for (let i = 0; i < txParams.paramIn.length; i++) {
+    txobj = zencashjs.transaction.signTx(txobj, i, secretItems.privateKey, compressPubKey, SIGHASH_ALL);
+  }
 
-  return zencashjs.transaction.serializeTx(signedobj)
-}
-
-export function signTransaction2(txobj: any, secretItems: any) {
-  const compressPubKey = true
-  const SIGHASH_ALL = 1
-  const signedobj = zencashjs.transaction.signTx(txobj, 0, secretItems.privateKey, compressPubKey, SIGHASH_ALL)
-
-
-  return zencashjs.transaction.serializeTx(signedobj)
+  return zencashjs.transaction.serializeTx(txobj)
 }
