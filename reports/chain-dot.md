@@ -602,7 +602,7 @@ export async function getNonce(account: string, api : ApiPromise ) {
 }
 ```
 
-## 4.5.2 获取最新区块
+## 
 
 # 附件１．Polkadot白皮书提纲
 
