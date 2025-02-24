@@ -1,0 +1,108 @@
+
+> chain-cosmos@1.0.0 test /Users/qiuxo/S4WorkSpace/chain-wallet-sdk-main/app/chain-cosmos
+> jest
+
+[1m[2mDetermining test suites to run...[22m[22m[999D[K
+[?2026h[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026l[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    {
+      privateKey: 'dbd4a79fe8b003ba0815a08ac3d4a9e940cd8346149b72f5f710a8963ef70c4f',
+      publicKey: '022ca75e5f8a8769e81b714c364cd66852da292cef260c2acbee6ad3e6f43ee107',
+      address: 'cosmos1akzl0vk79rtrg243z6c4s7cqvprgvky4m2d0tx'
+    }
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/atom.test.ts[39m[0m[2m:17:17)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026l[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    {
+      privateKey: 'dbd4a79fe8b003ba0815a08ac3d4a9e940cd8346149b72f5f710a8963ef70c4f',
+      address: 'cosmos1akzl0vk79rtrg243z6c4s7cqvprgvky4m2d0tx'
+    }
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/atom.test.ts[39m[0m[2m:31:17)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026l[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    cosmos1ale03zlshghgtkxg0m8e8f0j574cc45jdaf0gf
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/atom.test.ts[39m[0m[2m:40:17)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026l[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    true
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/atom.test.ts[39m[0m[2m:51:17)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026l[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    messageHash=== d738030454ca00fe8f58206e297e176232793ce4dc411483fcb4171040308c2c
+[2m[22m
+[2m      [2mat getDirectSignature ([22m[2mwallet/post-ibc-signer.ts[2m:57:13)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A[999D[K
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A  [2mconsole.log[22m
+    {"tx_bytes":"CpoBCo8BChwvY29zbW9zLmJhbmsudjFiZXRhMS5Nc2dTZW5kEm8KLWNvc21vczFha3psMHZrNzlydHJnMjQzejZjNHM3Y3F2cHJndmt5NG0yZDB0eBItY29zbW9zMXkyZmFhd2hsNDludndoMGx6eTgwdGQ2Zm1oNTNsdnFydmR2c2pkGg8KBXVhdG9tEgYxMDAwMDASBnhpdXFpdRJoClAKRgofL2Nvc21vcy5jcnlwdG8uc2VjcDI1NmsxLlB1YktleRIjCiECLKdeX4qHaegbcUw2TNZoUtopLO8mDCrL7mrT5vQ+4QcSBAoCCAEYARIUCg4KBXVhdG9tEgUxMDAwMBCQngcaQAOFtxPu0xZJOW2PRGkiWXN9hwC9pjiHzSxuXr77KSdFcCIDKUt6MMz4qcRdr7L+zMpaLsudXwRxK9RBPQK+nIU=","mode":"BROADCAST_MODE_SYNC"}
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/atom.test.ts[39m[0m[2m:88:17)[22m[2m[22m
+
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026h[K[1A[K[1A
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026l[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A  atom unit test case
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A    [32m✓[39m [2mcreateAddress (39 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A    [32m✓[39m [2mimport atom address (36 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A    [32m✓[39m [2mimport public to address[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A    [32m✓[39m [2mverify atom address (2 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A    [32m✓[39m [2msign version 2 atom transaction (37 ms)[22m
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[K[1A[K[1A
+
+[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2mtest/[22m[1matom.test.ts[22m
+[?2026h[K[1A[K[1A[?2026l[999D[K[1mTest Suites: [22m[1m[32m1 passed[39m[22m, 1 total
+[1mTests:       [22m[1m[32m5 passed[39m[22m, 5 total
+[1mSnapshots:   [22m0 total
+[1mTime:[22m        0.475 s, estimated 2 s
+[2mRan all test suites[22m[2m.[22m
+[?2026h[?2026l
