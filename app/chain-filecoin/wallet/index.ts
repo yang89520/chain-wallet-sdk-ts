@@ -3,6 +3,7 @@ import { fromSeed } from "bip32";
 import { KeyPair, keyPairFromPrivateKey } from "@nodefactory/filecoin-address";
 import { FilecoinSigner } from '@blitslabs/filecoin-js-signer';
 import BigNumber from 'bignumber.js'
+// import BigNumber from 'bignumber.js'
 // initial filecoinSigner
 const filecoinSigner = new FilecoinSigner();
 
