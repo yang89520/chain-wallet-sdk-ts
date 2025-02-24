@@ -20,12 +20,6 @@ beforeAll(() => {
     mnemonic2 = bip.generateMnemonic(24,)
 });
 
-//znp5aYNr9f848b4pFH3pbX7wtRWrTaqb4cg
-//znVmcBG35teueHJTuB1dQuc94XY733Z1Hec
-//znjJKyVuBZq6SwZtJfj2aCxds8V3rWdjTCb
-//zncEtJe7yxhqN8CDYgP6wdwTUX6AT5BodeV
-//znahxNwKFYk2wwckzoWzyswQXc5iL9UtveU
-
 describe('zen expect run pass test', () => {
     test('generate mnemonic', async () => {
         const mnemonic = bip.generateMnemonic(24,);
@@ -68,7 +62,7 @@ test('sign transaction', async () => {
         blockHeight: 1721596, // 这里的blockHeight 为最新块-300的高度
         blockHash: '0000000000580b993309e9e09fbe1e7c860256b1a4e8c417bfb3dc59b201caab' //上面blockHeight所对应的hash
     }
-    // This usually means the signature is wrong or incomplete, signature order matters with P2SH addresses. Private keys provided to spend from a P2SH address have to be given in the same order (skipping keys is okay when m < n, but still in the same order) as given when the P2SH address was generated.
+
     const privateKey = await wallet.phraseToSecretItems(0, mnemonic1)[0]
     console.log(privateKey)
     const sign = wallet.signTransaction(txobj, privateKey)
