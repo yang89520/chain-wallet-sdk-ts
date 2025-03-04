@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./wallet/*"]
+    }
+  },
+  "include": ["wallet/**/*"],
+  "exclude": ["node_modules", "dist"]
+} 
